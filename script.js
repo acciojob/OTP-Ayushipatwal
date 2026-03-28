@@ -20,7 +20,7 @@
          code.addEventListener("keydown", (e) => {
         if (e.key === "Backspace") {
 
-          // if current is empty → move back
+        
           if (!code.value && index > 0) {
             codes[index - 1].focus();
           } else {
