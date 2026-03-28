@@ -1,33 +1,28 @@
-  const codes = document.querySelectorAll(".code");
+const codes = document.querySelectorAll(".code");
 
-    codes[0].focus(); //
+codes[0].focus();
 
-    codes.forEach((code, index) => {
+codes.forEach((code, index) => {
 
-      code.addEventListener("input", (e) => {
-        const value = e.target.value;
-      
-        if (!/^[0-9]$/.test(value)) {
-          code.value = "";
-          return;
-        }
+  code.addEventListener("input", (e) => {
+    const value = e.target.value;
 
-        if (value && index < codes.length - 1) {
-          codes[index + 1].focus();
-        }
-      });
+    if (!/^[0-9]$/.test(value)) {
+      code.value = "";
+      return;
+    }
 
-         code.addEventListener("keydown", (e) => {
-        if (e.key === "Backspace") {
+    if (value && index < codes.length - 1) {
+      codes[index + 1].focus();
+    }
+  });
 
-        
-          if (!code.value && index > 0) {
-            codes[index - 1].focus();
-          } else {
-           
-            code.value = "";
-          }
-        }
-      });
+  code.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace") {
+      if (index > 0) {
+        codes[index - 1].focus();
+      }
+    }
+  });
 
-    });
+});
